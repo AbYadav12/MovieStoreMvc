@@ -1,0 +1,76 @@
+﻿@model MovieStoreMvc.Models.DTO.LoginModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie store</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/images/movie_filter_FILL0_wght400_GRAD0_opsz48.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="logo">
+            movie store
+        </div>
+ @*        <ul class="nav-link">
+            <li><a class="active" href="/index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+                <a href="#">Admin <i class="fa fa-caret-down"></i></a>
+
+                <ul class="dropdown-nav-link">
+                    <li><a href="/forms.html">Form</a></li>
+                    <li><a href="/table.html">Table</a></li>
+                    <li><a href="/movie-detail.html">Movie Detail</a></li>
+                    <li><a href="#">Link 4</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+        </ul> *@
+    </nav>
+    <section class="container">
+        <form class="w-40" asp-action="Login" method="post">
+            <h2 class="pb-10">Login</h2>
+            <div class="input-container">
+                <label asp-for="Username" class="w-40">UserName</label>
+                <input type="text" asp-for="Username" class="input">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Username"></span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="Password" class="w-40">Password</label>
+                <input type="text" asp-for="Password" class="input">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Password"></span>
+            </div>
+            @if (TempData["msg"] != null)
+            {
+               <div class="alert mb-1">
+                   @TempData["msg"]
+               </div>
+            }
+
+            <div class="input-container">
+                <button class="btn btn-default" type="submit">Login</button>
+               @*  <a class="btn btn-sec" href="#">Add more</a> *@
+            </div>
+        </form>
+    </section>
+
+</body>
+</html>
